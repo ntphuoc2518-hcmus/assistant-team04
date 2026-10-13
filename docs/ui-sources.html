@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Answer Sources — UI Mockup</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172538; background: #f1f5f9; }
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.65; }
+    main { max-width: 880px; margin: auto; padding: 40px 20px 60px; }
+    h1 { margin: 6px 0 10px; font-size: clamp(1.8rem, 5vw, 2.7rem); line-height: 1.2; }
+    h2 { margin: 0; font-size: 1.1rem; }
+    h3 { margin: 0 0 10px; font-size: 1rem; }
+    p { margin: 10px 0; }
+    .eyebrow { font-size: .8rem; letter-spacing: .12em; font-weight: 700; color: #265f9b; }
+    .intro { color: #43566d; max-width: 68ch; }
+    .notice { background: #fff7df; border: 1px solid #dfc681; border-radius: 10px; padding: 14px 18px; margin: 22px 0; color: #654c14; }
+    .example { background: white; border: 1px solid #d6e0eb; border-radius: 16px; padding: 24px; margin-top: 24px; box-shadow: 0 6px 22px #17253808; }
+    .question { background: #edf4fc; border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+    .label { display: block; font-size: .75rem; font-weight: 700; color: #43566d; letter-spacing: .08em; margin-bottom: 4px; }
+    .sources { border-top: 1px solid #d6e0eb; margin-top: 22px; padding-top: 18px; }
+    .sources ol { padding-left: 25px; margin: 0; }
+    .sources li { padding: 8px 0 14px 5px; scroll-margin-top: 20px; overflow-wrap: anywhere; }
+    .sources li + li { border-top: 1px solid #e3eaf2; }
+    .source-title { display: block; font-weight: 650; }
+    .meta { display: block; color: #43566d; font-size: .88rem; }
+    .status { display: inline-block; font-size: .78rem; color: #654c14; background: #fff2cb; padding: 3px 9px; border-radius: 5px; margin: 6px 0; }
+    a { color: #1459a0; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #1459a0; outline-offset: 4px; border-radius: 2px; }
+    li:target { background: #edf4fc; border-radius: 6px; }
+    footer { color: #43566d; font-size: .9rem; margin-top: 28px; }
+    @media (max-width: 480px) { main { padding: 24px 12px; } .example { padding: 18px 14px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="eyebrow">TEAM 04 · ISSUE #9</span>
+      <h1>Answers with clear sources</h1>
+      <p class="intro">A static design for showing the evidence behind each answer. References stay beside the claims they support, with source details directly below.</p>
+    </header>
+    <aside class="notice" aria-label="Sample data warning"><strong>Design demonstration only.</strong> All examples use sample, unverified information. These are not official university instructions. No live retrieval is connected.</aside>
+
+    <section class="example" aria-labelledby="example-one">
+      <h2 id="example-one">Example 1 · One source</h2>
+      <div class="question"><span class="label">QUESTION</span>Where is the Training Office?</div>
+      <div><span class="label">ASSISTANT</span><p>In this illustrative example, the Training Office is in room <strong>I.101</strong>. <a href="#example-one-source-1" aria-label="View source 1 for the room number">[1]</a></p></div>
+      <section class="sources" aria-labelledby="sources-one">
+        <h3 id="sources-one">Sources</h3>
+        <ol>
+          <li id="example-one-source-1">
+            <span class="source-title">Sample office directory</span>
+            <span class="meta">CSV fixture · Owner: demo dataset</span>
+            <span class="status">Sample data — not verified</span>
+            <span class="meta">Supports: the room number in the answer.</span>
+            <span class="meta">URL / update date: not available.</span>
+          </li>
+        </ol>
+      </section>
+    </section>
+
+    <section class="example" aria-labelledby="example-two">
+      <h2 id="example-two">Example 2 · Multiple sources</h2>
+      <div class="question"><span class="label">QUESTION</span>How do I request a sample student certificate, and where can I submit it?</div>
+      <div><span class="label">ASSISTANT</span><p>In this illustrative workflow, fill in the <strong>certificate request form</strong> <a href="#example-two-source-1" aria-label="View source 1 for the request form">[1]</a>, then submit it to the <strong>sample Student Services desk</strong>. <a href="#example-two-source-2" aria-label="View source 2 for the submission location">[2]</a></p></div>
+      <section class="sources" aria-labelledby="sources-two">
+        <h3 id="sources-two">Sources</h3>
+        <ol>
+          <li id="example-two-source-1">
+            <span class="source-title">Sample certificate request guide</span>
+            <span class="meta">Document fixture · Owner: demo dataset</span>
+            <span class="status">Sample data — not verified</span>
+            <span class="meta">Supports: completing the form.</span>
+            <span class="meta">URL / update date: not available.</span>
+          </li>
+          <li id="example-two-source-2">
+            <span class="source-title">Sample Student Services directory</span>
+            <span class="meta">Directory fixture · Owner: demo dataset</span>
+            <span class="status">Sample data — not verified</span>
+            <span class="meta">Supports: the submission location.</span>
+            <span class="meta">URL / update date: not available.</span>
+          </li>
+        </ol>
+      </section>
+    </section>
+    <footer><strong>Missing-source rule:</strong> If no supporting source is available, show “No verified source available.” instead of inventing a citation.</footer>
+  </main>
+</body>
+</html>
