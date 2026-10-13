@@ -1,4 +1,4 @@
-# src/assistant/rules.py
+# assistant_rules.py
 import re
 
 offices = {
