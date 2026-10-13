@@ -1,4 +1,4 @@
-# tests/test_issue10.py
+# test_issue10.py
 from assistant.rules import reply
 
 def test_partial_office_name():
