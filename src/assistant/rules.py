@@ -8,6 +8,7 @@ OFFICE_LOCATIONS = {
 }
 
 GREETING_KEYWORDS = {"hi", "hello", "hey", "chào"}
+HELP_KEYWORDS = {"help", "trợ giúp", "commands"}
 
 
 def reply(question: str) -> str:
@@ -17,6 +18,7 @@ def reply(question: str) -> str:
     - Empty or whitespace query: Prompt user to type a question.
     - Office inquiries: Return office location room code (e.g., I.101).
     - Greetings: Return friendly greeting containing 'Hello'.
+    - Help: Return list of available capabilities.
     - Unknown queries: Return fallback message containing 'don't know'.
     """
     if not question or not question.strip():
@@ -24,13 +26,17 @@ def reply(question: str) -> str:
 
     normalized = question.strip().lower()
 
+    # Check for help command
+    words = set(re.findall(r"\b\w+\b", normalized))
+    if words.intersection(HELP_KEYWORDS) or "help" in normalized:
+        return "I can help you lookup office locations and answer general greetings."
+
     # Check for office lookup
     for office_name, room in OFFICE_LOCATIONS.items():
         if office_name in normalized:
             return f"The {office_name.title()} is in room {room}."
 
     # Check for greeting
-    words = set(re.findall(r"\b\w+\b", normalized))
     if words.intersection(GREETING_KEYWORDS):
         return "Hello! How can I assist you today?"
 
