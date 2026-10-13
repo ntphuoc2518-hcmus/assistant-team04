@@ -5,6 +5,8 @@ import re
 # Mapping of known offices to room numbers
 OFFICE_LOCATIONS = {
     "training office": "I.101",
+    "phòng đào tạo": "B.02",
+    "trạm y tế": "E.02",
 }
 
 GREETING_KEYWORDS = {"hi", "hello", "hey", "chào"}
