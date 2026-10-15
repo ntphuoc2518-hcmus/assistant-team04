@@ -14,8 +14,13 @@ def test_unknown():
 
 
 def test_empty():
-    assert reply("   ") == "Please type a question."
+    assert reply("    ") == "Please type a question."
 
 
 def test_help_command():
     assert "lookup office" in reply("help")
+
+
+def test_new_offices_lookup(): #mien co tien to test_
+    assert "B.02" in reply("Phòng Đào tạo ở đâu?")
+    assert "E.02" in reply("Trạm Y tế ở đâu?")
