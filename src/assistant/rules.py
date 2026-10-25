@@ -30,8 +30,8 @@ def reply(question: str) -> str:
 
     # Check for help command
     words = set(re.findall(r"\b\w+\b", normalized))
-    if words.intersection(HELP_KEYWORDS) or "help" in normalized:
-        return "I can help you lookup office locations and answer general greetings."
+    if normalized in HELP_KEYWORDS or normalized == "help":
+    	return "I can help you lookup office locations and answer general greetings."
 
     # Check for office lookup
     for office_name, room in OFFICE_LOCATIONS.items():
@@ -42,5 +42,9 @@ def reply(question: str) -> str:
     if words.intersection(GREETING_KEYWORDS):
         return "Hello! How can I assist you today?"
 
-    # Fallback for unrecognized questions
-    return "I am sorry, but I don't know the answer to that."
+    # Fallback for unrecognized questions: explain supported topics and offer an example.
+    return (
+        "I am sorry, but I don't know the answer to that. "
+        "I can help with office locations. "
+        "Try asking 'Where is the Training Office?'"
+    )
